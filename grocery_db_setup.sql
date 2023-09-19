@@ -133,3 +133,39 @@ VALUES
 (3, 'DAWN POT & PAN','PC',1,17.19,17.19,'6613906'), 
 (3, 'SQUEEZE BOTTLES','PC',1,5.69,5.69,'9917045');
 
+
+#####################
+
+USE grocery;
+select * from store; --checking db connection 
+
+-- RECEPT 3: Trader Joes 9/18/2023
+
+--entering new store
+
+INSERT INTO store (name, address)
+VALUES 
+('Trader Joes','4121 NE Halsey St');
+
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(4, '2023-09-17', 57.56);
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(4, 'PASTA SPAGHETTI','PC',1,.99,.99,null), 
+(4, 'ORG TOMATO BASIL MARINARA','PC',1,3.49,3.49,null), 
+(4, 'RICE CAKES','PC',1,3.49 ,3.49,null), 
+(4, 'POPCORN','PC',1,2.79,2.79,null),
+(4, 'PEANUT BUTTER PRETZELS','PC',1,2.49,2.49,null), 
+(4, 'FROZEN PIZZA PARLANNO','PC',1,5.49,5.49,null), 
+(4, 'DARK CHOCOLATE PEANUT BUTTER CUPS','PC',1,4.49,4.49,null), 
+(4, 'PASTA RAVIOLI','PC',1,3.99,3.99,null),
+(4, 'TEMPEH ORG 3 GRAIN','PC',1,2.29,2.29,null), 
+(4, 'FROZEN GYOZA PORK','PC',1,3.99,3.99,null), 
+(4, 'RIBEYE STEAK ORG','PC',1,14.99,14.99,null), 
+(4, 'BAKED CHEESE CRUNCHIES','PC',1,2.49,2.49,null),
+(4, 'TEA GINGER TURMERIC ORG','PC',1,2.99,2.99,null), 
+(4, 'TEA IRISH BREAKFAST 80 CT','PC',1,3.49,3.49,null); 
+
+SELECT * FROM ITEMS; 
