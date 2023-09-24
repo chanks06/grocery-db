@@ -212,3 +212,23 @@ VALUES
 (5, 'BREAD DAVES KILLER','PC',1,5.88,5.88,1376402705), 
 (5, 'GARLIC','PC',1,.68,.68,4608);
 
+
+-- receipt 9/22/23 new foods: WHOLE FOODS! 
+
+INSERT INTO store (name, address)
+VALUES 
+('Whole Foods','2825 E Burnside St');
+
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(5, '2023-09-22', 22.45);
+
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(6, 'CHIVES ORG','PC',1,2.99,2.99, NULL), 
+(6, 'CHICKEN BROTH ORG','PC',1,3.59,3.59,NULL), 
+(6, 'CARNAROLI RICE','PC',1,7.99 ,7.99,NULL), 
+(6, 'PARMESAN CHEESE','LBS',.42,18.99,7.98,NULL);
+
+SELECT * FROM ITEMS;
