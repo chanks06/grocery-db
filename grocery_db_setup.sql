@@ -261,3 +261,70 @@ VALUES
 (7, 'BREAD DAVES KILLER','PC',1,5.88,5.88,1376402705);
 
 select * from items where trip_id = 7;
+
+--receipt 10/02 target
+
+--adding new store 
+INSERT INTO store (name, address)
+VALUES 
+('Target','3031 SE Powell Blvd'); -- target is store_id 6 
+
+-- adding new trip
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(6, '2023-10-02', 44.97);
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(6, 'CHOCOLATE CARAMELS','PC',1,6.19,6.19,055021981), 
+(6, 'UP&UP STRONG TOILET PAPER ','PC',1,13.79,13.79,253060274), 
+(6, 'SOY CANDLE','PC',1,13.00 ,13.00,054099123), 
+(6, 'LAUNDRY DETERGENT EVERSPRING','PC',1,11.99,11.99,003020780);
+
+
+
+
+SELECT * FROM STORE; 
+
+
+-- RECEIPT 10/07/23 WINCO 
+
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(2, '2023-10-07', 70.15);
+
+SELECT * FROM TRIPS WHERE DATE = '2023-10-07';
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(9, 'MILK WINCO HALF GAL','PC',1,3.98,3.98,7055240622), 
+(9, 'TORTILLA CALIDAD','PC',1,1.35,1.35,7794801197), 
+(9, 'PORK CARNITAS CUT','PC',1,8.04 ,9.04,2833), 
+(9, 'CHEESE BLOCK DARIGOLD','PC',1,6.61,6.61,2640012172),
+(9, 'CANOLA OIL WINCO','PC',1 ,3.98,3.98,7055290023), 
+(9, 'BAY LEAF EL GUAPO ','PC',1,1.24,1.24,4498901131), 
+(9, 'CUMIN EL GUAPO','PC',1,.96,.96,4498920340), 
+(9, 'CHOBANI FLIP','PC',2,1.38,2.76,81829001073),
+(9, 'HOMAI CALROSE RICE','PC',1,5.48,5.48,7317618009), 
+(9, 'CHOCOLATE CHIPS SEMI SWEET','LBS',1.36,3.48,4.73,1821), 
+(9, 'BEANS GREAT NORTHERN','LBS',.69,1.20,.83,1634), 
+(9, 'MACADAMIAN NUTS','LBS',.46,7.58,3.49,2201),
+(9, 'CLIF BAR 6 PACK','PC',1,5.98,5.98,72225266006), 
+(9, 'PEPITAS ROASTED','LBS',.57,5.48,3.12,2068), 
+(9, 'TAPATIO HOT SAUCE','PC',1,2.48,2.48,7788588200), 
+(9, 'ONIONS','LBS',.68,.58,.39,4093), 
+(9, 'TOFU FIRM','PC',1,1.98,1.98,7432600012),
+(9, 'CAULIFLOWER','LBS',1.87,.98,1.83,4079), 
+(9, 'APPLE GOLDEN DELICIOUS','LBS',2.21,1.48,3.27,4021),
+(9, 'LEMON LARGE','PC',1,.98,.98,4053), 
+(9, 'BANANAS','LBS',2.49,.59,1.47,4011), 
+(9, 'SCALLION','PC',1,.99,.99,4068), 
+(9, 'CUCUMBER','PC',1,.58,.58,4062), 
+(9, 'ZUCCHINI','LBS',.66,.98,.65,4067), 
+(9, 'FRANZ BREAD','PC',1,2.98,2.98,7222000457);
+
+SELECT * FROM ITEMS WHERE SKU = 7055240622;
+
+update items 
+set product_name = "ORGANIC MILK WINCO HALF GAL" 
+where sku = 7055240622; 
