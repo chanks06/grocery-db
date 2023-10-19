@@ -328,3 +328,58 @@ SELECT * FROM ITEMS WHERE SKU = 7055240622;
 update items 
 set product_name = "ORGANIC MILK WINCO HALF GAL" 
 where sku = 7055240622; 
+
+
+-- GROCERY db update 10/19/2023: Fred Meyer 2x, Winco 
+
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(1, '2023-10-13', 15.47),
+(1, '2023-10-15', 20.06),
+(2, '2023-10-17', 15.47);
+
+select * from trips; 
+
+--Fred Meyer trip 10/13/23
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(10, 'AA BATTERIES','PC',1,4.99,4.99,3980001132), 
+(10, 'KROGER MIXED NUTS','PC',1,2.99,2.99,1111070477), 
+(10, 'HMCF FIVE CH','PC',1,7.49,7.49,84013430793);
+
+
+select * from trips;
+
+
+--Fred Meyer trip 10/15/23 
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(11, 'BBQ VEGAN SANDWICH','PC',1,7.49,7.49,9663611856), 
+(11, 'LIQUID DEATH','PC',1,2.19,2.19,85003170018), 
+(11, 'OLIPOP ORANGE 12 OZ CAN','PC',1,2.59,2.59,86043900108),
+(11, 'THERAFLU','PC',1,7.79,7.79,30067327240);
+
+ 
+--WINCO trip 10/17/23 COMMENT
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(12, 'PEANUT BUTTER ADAMS','PC',1,7.88,7.88,5150070030), 
+(12, 'LIQUID DEATH','PC',4,1.60,6.40,85003170018), 
+(12, 'FENNEL','LBS',1.77,2.28,4.04,4515), 
+(12, 'YUKON GOLDS 3 LBS BAG','PC',1,3.98,3.98,62823392233), 
+(12, 'CHOBANI FLIP','PC',2,1.38,5.52,81829001920),
+(12, 'MUSHROOMS CRIMINI','LBS',.81,3.98,3.22,4698), 
+(12, 'CARROTS','LBS',1.80,.68,1.22,4562), 
+(12, 'FIG BAR','PC',4,.78,3.12,4749501305), 
+(12, 'EGGS ORG 1 DZ','PC',1,5.99,5.99,73692130008),
+(12, 'PARSNIPS','LBS',.76,2.28,1.73,4672), 
+(12, 'OATS','LBS',1.69,.70,1.18,1933), 
+(12, 'DRIED PRUNES','LBS',.68,4.38,2.98,2152), 
+(12, 'COUS COUS','LBS',.75,1.98,1.49,1944), 
+(12, 'APPLE GOLDEN DELICIOUS','LBS',2.39,1.48,3.53,4021),
+(12, 'SHALLOT','LBS',.19,1.98,.38,4662), 
+(12, 'GARLIC','PC',1,.68,.68,4608),
+(12, 'BREAD SEATTLE SOURDOUGH','PC',1,4.48,4.48,7222010152); 
+
+
+
