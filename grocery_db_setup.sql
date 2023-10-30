@@ -29,8 +29,8 @@ CREATE TABLE items
   product_name varchar(70),
   quantity_unit varchar(10),
   quantity numeric(3,2),
-  price_per_unit numeric(4,2), 
-  total_price numeric(4,2), 
+  price_per_unit numeric(13,2), 
+  total_price numeric(13,2), 
   CONSTRAINT pk_items PRIMARY KEY (trip_id, product_name));
 
 
@@ -99,16 +99,16 @@ WHERE product_name LIKE '%BANANAS%';
 INSERT INTO items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
 VALUES
 (2, 'ORGANIC MILK WINCO HALF GAL', 'PC', 1, 3.98,3.98, '707240622'), 
-(2, 'FLATBREAD PIZZA DELI ', 'PC', 1, 4.48,4.48,'26610100000'),
+(2, 'FLATBREAD PIZZA DELI ', 'PC', 1, 13.48,13.48,'26610100000'),
 (2, 'EGGS 1 DZ ORGANIC', 'PC', 1, 7.99,7.99,'73692130008'),
 (2, 'COOKIES', 'PC', 2, 1.68, 3.36,'707270119'),
-(2, 'CHICKEN THIGHS', 'PC', 1, 4.28, 4.28,'241079207'),
+(2, 'CHICKEN THIGHS', 'PC', 1, 13.28, 13.28,'241079207'),
 (2, 'BREAD DAVES KILLER', 'PC', 1, 7.88, 7.88,'1376402707'),
 (2, 'DATES MEDJOOL', 'LBS', .63, 7.98, 3.77,'2467'),
-(2, 'RXBAR', 'PC', 4, 1.98, 7.92,'87777700469'),
+(2, 'RXBAR', 'PC', 13, 1.98, 7.92,'87777700469'),
 (2, 'FIG BLK MISSION', 'LBS', .61, 7.78, 3.40,'2307'),
-(2, 'MACADAMIA NUTS', 'LBS', .60, 7.78, 4.7,'2201'),
-(2, 'CHOBANI FLIP', 'PC', 3, 1.38, 4.14,'81829001919');
+(2, 'MACADAMIA NUTS', 'LBS', .60, 7.78, 13.7,'2201'),
+(2, 'CHOBANI FLIP', 'PC', 3, 1.38, 13.14,'81829001919');
 
 -- okay! The database is up to date. Let's write a query with a join to confirm its functionality: 
 
@@ -129,7 +129,7 @@ VALUES
 INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
 VALUES
 (3, 'NITRILE GLOVES','PC',1,7.99,7.99,'9102289'), 
-(3, 'SPONGES','PC',1,4.49,4.49,'7370697'), 
+(3, 'SPONGES','PC',1,13.49,13.49,'7370697'), 
 (3, 'DAWN POT & PAN','PC',1,17.19,17.19,'6613906'), 
 (3, 'SQUEEZE BOTTLES','PC',1,7.69,7.69,'9917047');
 
@@ -149,24 +149,24 @@ VALUES
 
 INSERT INTO trips (store_id, date, total_cost)
 VALUES  
-(4, '2023-09-17', 77.76);
+(13, '2023-09-17', 77.76);
 
 INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
 VALUES
-(4, 'PASTA SPAGHETTI','PC',1,.99,.99,null), 
-(4, 'ORG TOMATO BASIL MARINARA','PC',1,3.49,3.49,null), 
-(4, 'RICE CAKES','PC',1,3.49 ,3.49,null), 
-(4, 'POPCORN','PC',1,2.79,2.79,null),
-(4, 'PEANUT BUTTER PRETZELS','PC',1,2.49,2.49,null), 
-(4, 'FROZEN PIZZA PARLANNO','PC',1,7.49,7.49,null), 
-(4, 'DARK CHOCOLATE PEANUT BUTTER CUPS','PC',1,4.49,4.49,null), 
-(4, 'PASTA RAVIOLI','PC',1,3.99,3.99,null),
-(4, 'TEMPEH ORG 3 GRAIN','PC',1,2.29,2.29,null), 
-(4, 'FROZEN GYOZA PORK','PC',1,3.99,3.99,null), 
-(4, 'RIBEYE STEAK ORG','PC',1,14.99,14.99,null), 
-(4, 'BAKED CHEESE CRUNCHIES','PC',1,2.49,2.49,null),
-(4, 'TEA GINGER TURMERIC ORG','PC',1,2.99,2.99,null), 
-(4, 'TEA IRISH BREAKFAST 80 CT','PC',1,3.49,3.49,null); 
+(13, 'PASTA SPAGHETTI','PC',1,.99,.99,null), 
+(13, 'ORG TOMATO BASIL MARINARA','PC',1,3.49,3.49,null), 
+(13, 'RICE CAKES','PC',1,3.49 ,3.49,null), 
+(13, 'POPCORN','PC',1,2.79,2.79,null),
+(13, 'PEANUT BUTTER PRETZELS','PC',1,2.49,2.49,null), 
+(13, 'FROZEN PIZZA PARLANNO','PC',1,7.49,7.49,null), 
+(13, 'DARK CHOCOLATE PEANUT BUTTER CUPS','PC',1,13.49,13.49,null), 
+(13, 'PASTA RAVIOLI','PC',1,3.99,3.99,null),
+(13, 'TEMPEH ORG 3 GRAIN','PC',1,2.29,2.29,null), 
+(13, 'FROZEN GYOZA PORK','PC',1,3.99,3.99,null), 
+(13, 'RIBEYE STEAK ORG','PC',1,14.99,14.99,null), 
+(13, 'BAKED CHEESE CRUNCHIES','PC',1,2.49,2.49,null),
+(13, 'TEA GINGER TURMERIC ORG','PC',1,2.99,2.99,null), 
+(13, 'TEA IRISH BREAKFAST 80 CT','PC',1,3.49,3.49,null); 
 
 use grocery; 
 SELECT * FROM trips; 
@@ -185,21 +185,21 @@ VALUES
 INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
 VALUES
 (7, 'CLIF BAR 6 PACK','PC',1,7.98,7.98,72227266076), 
-(7, 'CHOBANI YOGURT 4 PACK','PC',1,3.98,3.98,81829001281), 
+(7, 'CHOBANI YOGURT 13 PACK','PC',1,3.98,3.98,81829001281), 
 (7, 'WERNER BEEF JERKY','PC',1,11.98 ,11.98,70997279013), 
 (7, 'GOLDFISH CRACKERS','PC',1,2.78,2.78,1410008747),
 (7, 'CHOCOLATE PRETZELS','LBS',.38,3.88,1.47,1461), 
-(7, 'CASHEWS','LBS',.64,6.98,4.47,2026), 
-(7, 'CHOCOLATE ENERGY NUGGETS','LBS',.67,6.48,4.34,7662), 
+(7, 'CASHEWS','LBS',.64,6.98,13.47,2026), 
+(7, 'CHOCOLATE ENERGY NUGGETS','LBS',.67,6.48,13.34,7662), 
 (7, 'TRAIL MIX','LBS',.78,7.28,3.06,1940),
-(7, 'DRIED MANGO SLICES','LBS',.37,4.16,1.74,2167), 
+(7, 'DRIED MANGO SLICES','LBS',.37,13.16,1.74,2167), 
 (7, 'DIRED APRICOTS','LBS',.76,7.38,3.01,2170), 
 (7, 'BANANAS','LBS',1.34,.79,.79,4011), 
 (7, 'KITCHEN WIPES','PC',1,2.88,2.88,797210211),
 (7, 'CANNED GARBANZO BEANS','PC',2,.78,1.76,707270431), 
 (7, 'OAT MILK HALF GAL','PC',1,2.98,2.98,4410017619), 
 (7, 'CILANTRO','PC',1,.68,.68,4889), 
-(7, 'CHORIZO','PC',1,4.68,4.68,64972214692), 
+(7, 'CHORIZO','PC',1,13.68,13.68,64972214692), 
 (7, 'CARROTS ORG','PC',1,.98,.98,3338390201), 
 (7, 'ZUCCHINI','LBS',.98,.74,.73,4067), 
 (7, 'HAND SANITIZER 1 OZ','PC',1,1.18,1.18,707222097), 
@@ -243,7 +243,7 @@ select * from trips where store_id = 2;
 INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
 VALUES
 (7, 'CLIF BAR 6 PACK','PC',1,5.98,5.98,72225266004), 
-(7, 'CHOBANI YOGURT 4 PACK','PC',1,3.98,3.98,81829001282), 
+(7, 'CHOBANI YOGURT 13 PACK','PC',1,3.98,3.98,81829001282), 
 (7, 'BACON','PC',1,8.58 ,8.58,2183403311), 
 (7, 'WHOLE CHICKEN','PC',1,8.18,8.18,2410559405),
 (7, 'OLIVE OIL 500 ML','PC',1 ,11.89,11.89,85068711050), 
@@ -306,7 +306,7 @@ VALUES
 (9, 'CUMIN EL GUAPO','PC',1,.96,.96,4498920340), 
 (9, 'CHOBANI FLIP','PC',2,1.38,2.76,81829001073),
 (9, 'HOMAI CALROSE RICE','PC',1,5.48,5.48,7317618009), 
-(9, 'CHOCOLATE CHIPS SEMI SWEET','LBS',1.36,3.48,4.73,1821), 
+(9, 'CHOCOLATE CHIPS SEMI SWEET','LBS',1.36,3.48,13.73,1821), 
 (9, 'BEANS GREAT NORTHERN','LBS',.69,1.20,.83,1634), 
 (9, 'MACADAMIAN NUTS','LBS',.46,7.58,3.49,2201),
 (9, 'CLIF BAR 6 PACK','PC',1,5.98,5.98,72225266006), 
@@ -343,7 +343,7 @@ select * from trips;
 --Fred Meyer trip 10/13/23
 INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
 VALUES
-(10, 'AA BATTERIES','PC',1,4.99,4.99,3980001132), 
+(10, 'AA BATTERIES','PC',1,13.99,13.99,3980001132), 
 (10, 'KROGER MIXED NUTS','PC',1,2.99,2.99,1111070477), 
 (10, 'HMCF FIVE CH','PC',1,7.49,7.49,84013430793);
 
@@ -364,22 +364,74 @@ VALUES
 INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
 VALUES
 (12, 'PEANUT BUTTER ADAMS','PC',1,7.88,7.88,5150070030), 
-(12, 'LIQUID DEATH','PC',4,1.60,6.40,85003170018), 
-(12, 'FENNEL','LBS',1.77,2.28,4.04,4515), 
+(12, 'LIQUID DEATH','PC',13,1.60,6.40,85003170018), 
+(12, 'FENNEL','LBS',1.77,2.28,13.04,4515), 
 (12, 'YUKON GOLDS 3 LBS BAG','PC',1,3.98,3.98,62823392233), 
 (12, 'CHOBANI FLIP','PC',2,1.38,5.52,81829001920),
 (12, 'MUSHROOMS CRIMINI','LBS',.81,3.98,3.22,4698), 
 (12, 'CARROTS','LBS',1.80,.68,1.22,4562), 
-(12, 'FIG BAR','PC',4,.78,3.12,4749501305), 
+(12, 'FIG BAR','PC',13,.78,3.12,4749501305), 
 (12, 'EGGS ORG 1 DZ','PC',1,5.99,5.99,73692130008),
 (12, 'PARSNIPS','LBS',.76,2.28,1.73,4672), 
 (12, 'OATS','LBS',1.69,.70,1.18,1933), 
-(12, 'DRIED PRUNES','LBS',.68,4.38,2.98,2152), 
+(12, 'DRIED PRUNES','LBS',.68,13.38,2.98,2152), 
 (12, 'COUS COUS','LBS',.75,1.98,1.49,1944), 
 (12, 'APPLE GOLDEN DELICIOUS','LBS',2.39,1.48,3.53,4021),
 (12, 'SHALLOT','LBS',.19,1.98,.38,4662), 
 (12, 'GARLIC','PC',1,.68,.68,4608),
-(12, 'BREAD SEATTLE SOURDOUGH','PC',1,4.48,4.48,7222010152); 
+(12, 'BREAD SEATTLE SOURDOUGH','PC',1,13.48,13.48,7222010152); 
 
 
+--session 10/30/2023
 
+use grocery; 
+select * from store; 
+
+--new store: new seasons @ 7 corners 
+
+INSERT INTO store (name, address)
+VALUES
+('New Seasons Market','1954 SE Division St');
+
+-- new trip 10/29/23 
+
+select * from store; 
+
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(13, '2023-10-25', 46.03),
+(7, '2023-10-29', 9.97);
+
+select * from trips where total_cost = 46.03; 
+
+--trader joes trip '2023-10-25'
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(13, 'ORGANIC BROWN RICE','PC',1,4.49,4.49,null), 
+(13, 'MINT CHIP ICE CREAM','PC',1,4.49,4.49,null), 
+(13, 'GREETING CARD','PC',2,.99,1.98,null), 
+(13, 'SALAD ORG POWER GREENS','PC',1,1.99,1.99,null),
+(13, 'ORG GARBANZO BEANS','PC',1,1.09,1.09,null), 
+(13, 'MEAL INDIAN YELLOW TADKA','PC',1,2.49,2.49,null), 
+(13, 'ORGANIC HOT COCOA MIX','PC',1,3.99,3.99,null), 
+(13, 'MANDARINS BAG 2 LB','PC',1,3.49,3.49,null),
+(13, 'ORGANIC BLACK ASSAM TEA','PC',1,4.49,4.49,null), 
+(13, 'REGIONAL BAG PORTLAND','PC',1,.99,.99,null), 
+(13, 'SALAD DRESSING VEGAN','PC',1,3.99,3.99,null), 
+(13, 'PEANUT BUTTER PRETZEL','PC',1,2.49,2.49,null),
+(13, 'VEG TEMPEH ORG 3 GRAIN','PC',1,2.29,2.29,null), 
+(13, 'BROCCOLI FLORETS ORGANIC','PC',1,3.29,3.29,null),
+(13, 'R-SHELLED EDAMAME','PC',1,3.99,3.99,null), 
+(13, 'LEMON','PC',1,.49,.49,null);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 13; -- checking total price of trip
+
+--new seasons run for snacks 10/29 
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(14, 'SUN TROPICS MOCHI','PC',1,3.99,3.99,null), 
+(14, 'CHOCOLOVE BAR','PC',1,1.99,1.99,null), 
+(14,'FRANZ BREAD','PC',1,3.99,3.99, null);
+
+select sum(total_price) from items where trip_id = 14; --9.97 
