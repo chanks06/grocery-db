@@ -435,3 +435,39 @@ VALUES
 (14,'FRANZ BREAD','PC',1,3.99,3.99, null);
 
 select sum(total_price) from items where trip_id = 14; --9.97 
+
+---Winco Run 11/05/23
+
+use grocery; 
+
+select * from trips; 
+
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(2, '2023-11-05', 60.22);
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(15, 'MILK DARIGOLD HALF GAL','PC',1,3.80,3.80,2640042047), 
+(15, 'GROUND PORK 1 LB','PC',1,3.98,3.98,7055200408), 
+(15, 'SMUCKERS JAM','PC',1,3.87,3.87,5150014134), 
+(15, 'GTS KOMBUCHA','PC',1,3.98,3.98,72243020016), 
+(15, 'EGGS 1 DZ ORGANIC','PC',1,5.99,5.99,73692130008),
+(15, 'CHOBANI FLIP','PC',2,1.18,2.36,81829001073), 
+(15, 'PASTA','LBS',.56,1.28,.59,2313), 
+(15, 'DATES MEDJOOL','LB',.46,5.98,3.35,2465), 
+(15, 'CHEEZ-ITS','PC',1,2.98,2.98,2410010685),
+(15, 'PARSLEY','PC',1,.68,.68,4899), 
+(15, 'DELI SANDWICH','PC',1,2.98,2.98,26741900000), 
+(15, 'GARLIC CLOVE','PC',1,.68,.68,4608), 
+(15, 'GREEN ONION','PC',1,.68,.68,4068), 
+(15, 'CARROTS 2 LB BAG','PC',1,1.48,1.48,3338366401),
+(15, 'GROUND BEEF ORG','PC',1,5.88,5.88,75290760386), 
+(15, 'DAVES KILLER BREAD','PC',1,5.88,5.88,1376402705),
+(15, 'APPLE GOLDEN DELICIOUS','LB',2.38,1.28,3.05,4020),
+(15, 'ONION YELLOW','LB',.66,.38,.25,4093), 
+(15, 'NEWMANS FROZEN PIZZA','PC',1,6.27,6.27,2066200602),
+(15, 'BROCCOLI CROWNS','LB',1.01,1.48,1.49,4548);
+
+--TOTAL PRICE CHECK: 
+select sum(total_price) from items where trip_id = 15; --$60.22
