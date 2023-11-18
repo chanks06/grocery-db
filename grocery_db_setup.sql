@@ -471,3 +471,53 @@ VALUES
 
 --TOTAL PRICE CHECK: 
 select sum(total_price) from items where trip_id = 15; --$60.22
+
+--new trip: Winco 11/11/23
+
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(2, '2023-11-11', 45.00);
+
+use grocery; 
+
+select * from trips; 
+
+select * from store;
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(16, 'CIABATTA ROLLS 6 PACK','PC',1,5.23,5.23,8440110522), 
+(16, 'WINCO CRACKERS','PC',1,2.48,2.48,7055250191), 
+(16, 'GOLDFISH CRACKERS','PC',1,2.58,2.58,1410008547), 
+(16, 'SANDWICH','PC',1,2.98,2.98,26731200000), 
+(16, 'WINCO COOKIES','PC',1,1.68,1.68,7055250119),
+(16, 'CHOBANI YOGURT','PC',2,1.22,2.44,818290017), 
+(16, 'WINCO CREAM CHEESE','PC',1,1.78,1.78,7055240017), 
+(16, 'APPLES GOLDEN DELICIOUS','LB',1.68,1.28,2.15,4020), 
+(16, 'LEMON SMALL','PC',1,.38,.38,4985),
+(16, 'BANANAS','LBS',2.17,.59,1.28,4011), 
+(16, 'RXBAR','PC',2,1.98,3.96,85777700423), 
+(16, 'RED ONION','LBS',.60,.98,.59,4082), 
+(16, 'WALNUTS','LBS',.84,2.98,2.50,2035), 
+(16, 'RESER BURRITO','PC',4,.88,3.52,7111701150),
+(16, 'DATES MEDJOOL','LBS',.52,5.98,3.11,2465), 
+(16, 'HAM BLACK FOREST','PC',1,4.18,4.18,7470000140),
+(16, 'SWISS CHEESE','PC',1,3.48,3.48,7055208007),
+(16, 'CUCUMBER','PC',1,.68,.68,4062);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 16; --$45.00
+
+--NEW TRIP FRED MEYER 11/17/23
+
+INSERT INTO trips (store_id, date, total_cost)
+VALUES  
+(1, '2023-11-17', 20.60);
+
+INSERT INTO items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price,sku)
+VALUES
+(17, 'JUANITA TORTILLA CHIPS', 'PC', 1, 3.99,3.99,4886731224), 
+(17, 'LAMEX SALSA', 'PC', 1, 4.79,4.79,2011300149),
+(17, 'KALE ORG', 'PC', 1, 1.99,1.99,7878390600),
+(17, 'FRANZ BREAD 9 GRAIN', 'PC',1, 2.50, 2.50, 7222000457),
+(17, 'APPLES OPAL', 'LBS', 2.72, 1.99, 5.39,85290800225),
+(17, 'SPAGHETTI', 'PC',1, 1.89, 1.89, 2680000126);
