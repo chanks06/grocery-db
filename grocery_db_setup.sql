@@ -521,3 +521,40 @@ VALUES
 (17, 'FRANZ BREAD 9 GRAIN', 'PC',1, 2.50, 2.50, 7222000457),
 (17, 'APPLES OPAL', 'LBS', 2.72, 1.99, 5.39,85290800225),
 (17, 'SPAGHETTI', 'PC',1, 1.89, 1.89, 2680000126);
+
+select * from store;
+
+--adding new store: costco wholesale (my work!)
+
+insert into store (name, address)
+VALUES ('Costco', '13130 SE 84th Ave, Clackamas, OR 97015');
+
+insert into trips (store_id, date, total_cost)
+values (8, '2023-11-21',87.71);
+
+select * from trips;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price,sku)
+VALUES
+(18, 'SLIPPER WOMENS', 'PC', 2, 11.99,23.98,1678579), 
+(18, 'DELI ROLLED CHICKEN WRAP', 'PC', 1, 13.98,13.98,20128),
+(18, 'GODIVA CHOCOLATES', 'PC', 1, 17.99,17.99,1157695),
+(18, 'COOKIES 24 CT', 'PC',1, 9.99, 9.99, 34423),
+(18, 'PUMPKIN PIE', 'PC', 1, 5.99, 5.99,60809),
+(18, 'KS OATS 10 LBS', 'PC',1, 7.99, 7.99, 17366339),
+(18, 'KS WOOL SOCKS 4 PK', 'PC', 1, 14.99, 14.99,7771320);
+
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 18;
+
+SELECT 10.99*2;
+
+--CORRECTING CHOCOLATE PRICE 
+UPDATE ITEMS
+ SET price_per_unit = 12.79, TOTAL_PRICE = 12.79 WHERE PRODUCT_NAME = 'GODIVA CHOCOLATES';
+
+--CORRECTING SLIPPER PRICE 
+UPDATE ITEMS
+ SET price_per_unit = 10.99, TOTAL_PRICE = 21.98 WHERE PRODUCT_NAME = 'SLIPPER WOMENS';
+
+SELECT * FROM ITEMS WHERE TRIP_ID = 18;
