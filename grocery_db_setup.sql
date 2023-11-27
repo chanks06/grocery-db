@@ -558,3 +558,44 @@ UPDATE ITEMS
  SET price_per_unit = 10.99, TOTAL_PRICE = 21.98 WHERE PRODUCT_NAME = 'SLIPPER WOMENS';
 
 SELECT * FROM ITEMS WHERE TRIP_ID = 18;
+
+
+--update 11/25/23, Costco & trader Joes 
+
+--getting store id for trader joes
+select id,address from store where name = "Trader Joes"; --id = 4
+
+insert into trips (store_id, date, total_cost)
+values (4, '2023-11-25',14.45);
+
+--getting trip_id of recently entered trip:
+select * from trips order by date desc; --id = 19
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(19, 'APPLE ORG FUJI 2 LB','PC',1,2.99,2.99,null), 
+(19, 'CHOMPS BEEF STICK','PC',1,1.99,1.99,null), 
+(19, 'HOT COCOA MIX ORG','PC',2,3.99,3.99,null), 
+(19, 'IRISH BREAKFAST TEA 80 CT','PC',1,3.49,3.49,null),
+(19, 'RX BAR CHOC SEA SALT','PC',1,1.99,1.99,null);
+
+--COSTCO RUN FOR KEWPIE MAYO AND BREAD
+
+--getting store id of costco 
+
+select id, address from store where name = 'Costco'; --id = 8
+
+insert into trips (store_id, date, total_cost)
+values (8, '2023-11-25',15.98); --trip id = 20
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price,sku)
+VALUES
+(20, 'KEWPIE MAYO', 'PC', 1,6.49,6.49,1710454), 
+(20, 'DAVES KILER BREAD 2 PK', 'PC', 1, 9.49,9.49,512447); -- dkb IS $4.75 PER LOAF AT COSTCO
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 20; -15.98
+
+
+
+
+ 
