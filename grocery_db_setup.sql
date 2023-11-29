@@ -595,7 +595,52 @@ VALUES
 
 SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 20; -15.98
 
+--fred meyer + costco trips, 11/27/23
 
+-- 1. costco trip
 
+insert into trips (store_id, date, total_cost)
+values (8, '2023-11-27',29.77); --trip id = 21
 
- 
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price,sku)
+VALUES
+(21, 'DATES DEGLET ORGANIC 40 OZ', 'PC', 1,6.79,6.79,1312346), 
+(21, 'ADAMS CRUNCHY PEANUT BUTTER 80 OZ', 'PC', 1, 11.99,11.99,18257),
+(21, 'KS ORG ROLLED OATS 160 OZ', 'PC', 1, 10.99, 10.99, 1272413);
+
+--quick note - $/oz of adams peanut butter as costco: 
+select 11.99/80; --$.15
+
+--finding all the peanut butter items, their store, and price in db: 
+
+create view peanut_butter_view as
+select t.id, s.name, i.product_name, i.total_price from items as i
+inner join trips as t on i.trip_id = t.id
+inner join store as s on t.store_id = s.id
+where product_name LIKE '%PEANUT BUTTER%';
+
+create view pb_compare as 
+select * from peanut_butter_view where id = 12 or id = 21;
+
+select * from pb_compare;
+
+--winco adams pb $/oz:
+select total_price/36 from pb_compare where name = 'Winco'; --$.22 per ounce of peanut butter
+
+--costco adams pb $/oz
+select total_price/80 from pb_compare where name = 'Costco'; --$.15 per ounce
+
+--conclusion: it's cheaper to buy more peanut butter at costco for less (duh)
+
+--fred meyer 11/27/23
+insert into trips (store_id, date, total_cost)
+values (1, '2023-11-27',5.69);
+
+delete from trips where id = 23; 
+
+select * from trips;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price,sku)
+VALUES
+(22, 'KALE ORG', 'PC', 1,1.99,1.99,787890600), 
+(22, 'OCEAN SPRAY CRANBERRY SAUCE', 'PC', 1, 2.00,2.00,3120001605);
