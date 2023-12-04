@@ -644,3 +644,49 @@ insert into items (trip_id, product_name, quantity_unit, quantity, price_per_uni
 VALUES
 (22, 'KALE ORG', 'PC', 1,1.99,1.99,787890600), 
 (22, 'OCEAN SPRAY CRANBERRY SAUCE', 'PC', 1, 2.00,2.00,3120001605);
+
+
+--trip: winco on december 1st 
+--I should know this by now, but what is winco's store id ?
+
+select * from store where name like "%winco%"; -- 2
+
+
+insert into trips (store_id, date, total_cost)
+values (2, '2023-12-01',50.20);
+
+--trip_id for this trip = 25
+
+select * from trips where date = '2023-12-01';
+
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(25, 'WINCO CRACKERS','PC',1,2.48,2.48,7055250191), 
+(25, 'EGGS ORG 1 DZ','PC',1,5.99,5.99,73692130008), 
+(25, 'WINCO BREAD','PC',1,98,1.98,7055200639), 
+(25, 'SUCHIHANE NORI','PC',1,3.08,3.08,7441051719), 
+(25, 'SWISS CHUNK','PC',2,4.98,9.96,7055208010),
+(25, 'WINCO DICED TOMATO CAN','PC',1,.85,.85,7055260210), 
+(25, 'PECAN HALVES','LBS',.72,7.98,5.75, 2029), 
+(25, 'LENTILS GREEN','LB',1.03,2.28,2.35,1467), 
+(25, 'PARSLEY ITALIAN','PC',1,.68,.68,4901),
+(25, 'GREEN ONION','PC',1,.68,.68,4068), 
+(25, 'CELERY','PC',1,1.28,1.28,65151101), 
+(25, 'ZUCCHINI','LBS',1.19,1.28,1.52,4067), 
+(25, 'APPLE GOLDEN DELICIOUS','LBS',1.5,1.28,1.92,4021), 
+(25, 'BELL RED PEPPER','PC',1,.98,.98,4688),
+(25, 'SHALLOT','LBS',.11,1.68,.18,4662), 
+(25, 'LEMON LARGE','PC',1,.88,.88,4053),
+(25, 'WINCO TUNA CAN','PC',2,.88,1.76,7055270302),
+(25, 'ONION YELLOW','LBS',.61,.38,.23,4093),
+(25, 'WINCO BLACK BEANS','PC',1,.78,.78,7055270432), 
+(25, 'SANDWICH WINCO ITALIAN','PC',1,2.98,2.98,26731200000),
+(25, 'NAVY BEANS','LBS',.82,1.18,.97,1644),
+(25, 'QUINOA','LBS',1.13,2.58,2.92,1283);
+
+--confirming total cost of trip $50.20
+
+select sum(total_price) from items where trip_id = 25; 
+
+
