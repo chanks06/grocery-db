@@ -689,4 +689,53 @@ VALUES
 
 select sum(total_price) from items where trip_id = 25; 
 
+--data entry 12/12/23
 
+--what is costco's store id? 
+select * from store; -- store id = 8
+
+insert into trips (store_id, date, total_cost)
+values (8, '2023-12-09',14.38);
+
+select * from trips;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(26, 'FRANZ WHOLE WHEAT BREAD 2 PACK', 'PC',1, 6.39,6.39,922283),
+(26, 'SWISS MISS HOT CHOCOLATE','PC',1,7.99,7.99,1242231);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 26;
+
+--TRIP 2: WINCO 12/11/23
+
+INSERT INTO TRIPS (STORE_ID, DATE, TOTAL_COST)
+values (2, '2023-12-11',45.12);
+
+SELECT * FROM TRIPS ORDER BY DATE DESC;
+
+INSERT INTO ITEMS (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VAlUES
+(27, 'A&W ROOT BEER 6-PACK MINI','PC',1,2.98,2.98,7800000197), 
+(27, 'CALIDAD TORTILLA','PC',1,3.26,3.26,7794800602), 
+(27, 'WHEAT THINS','PC',1,3.28,3.28,4400006923), 
+(27, 'CHEEZ-ITS','PC',1,2.98,2.98,2410010685), 
+(27, 'ZUCCHINI SQUASH','LBS',.69,1.38,.95,4773),
+(27, 'WALNUT PIECES','LBS',.91,2.98,2.71,2054), 
+(27, 'SANDWICH DELI','PC',1,2.98,2.98, 26731000000), 
+(27, 'BLACK FOREST HAM','PC',1,3.48,3.48,7470000140), 
+(27, 'BROCCOLI','LBS',1.72,.99,1.70,4548),
+(27, 'JELLY BEANS','LBS',.57,2.18,1.24,2119), 
+(27, 'WINCO BLACK BEANS','PC',1,1.38,1.38,7055250134), 
+(27, 'WINCO COOKIES','PC',1,1.68,1.68,7055250134), 
+(27, 'WINCO BUTTER','PC',1,3.68,3.68,7055240402), 
+(27, 'BANANAS','LBS',2.62,.59,1.55,4011),
+(27, 'NAVEL ORANGES','LBS',1.87,1.28,2.69,4012), 
+(27, 'APPLE GOLDEN DELICIOUS','LBS',1.87,1.28,2.39,4021),
+(27, 'ONIONS SWEET','LBS',.9,.88,.79,4166),
+(27, 'LEMON LARGE','PC',1,.88,.88,4053),
+(27, 'MOZZARELLA CHEEZE','PC',1,4.12,4.12,21718800000), 
+(27, 'BOTTLE DEPOSIT','PC',6,.10,.60,4000000007);
+
+--CHECK TOTAL TRIP PRICE: 
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 27;
