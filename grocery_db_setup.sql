@@ -739,3 +739,28 @@ VAlUES
 --CHECK TOTAL TRIP PRICE: 
 
 SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 27;
+
+-- new receipt: costco 12/16
+
+insert into trips (store_id, date, total_cost)
+values (8, '2023-12-16',50.95);
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(26, 'JACKS SALSA', 'PC',1, 6.99,6.99,967596),
+(26, 'MONDETTA PULL OVER','PC',1,11.99,15.99,1720516),
+(26, 'LIP BALM 9 STICKS', 'PC',1, 11.99,14.99,1369314),
+(26, 'KIRKLAND GIFT WRAP 3 PACK','PC',1,14.99,14.99,1487739),
+(26, 'ROTISSERIE CHICKEN', 'PC',1, 4.99,4.99,87745);
+
+SELECT * FROM TRIPS;
+
+SELECT * FROM ITEMS WHERE TRIP_ID = 26; 
+
+-- I messed up, I need to change the trip_id of these past products I entered: COMMENT
+
+UPDATE items
+set trip_id = 28
+where product_name IN ('JACKS SALSA','MONDETTA PULL OVER', 'LIP BALM 9 STICKS','KIRKLAND GIFT WRAP 3 PACK','ROTISSERIE CHICKEN');
+
+select * from items order by trip_id desc; 
