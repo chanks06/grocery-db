@@ -764,3 +764,53 @@ set trip_id = 28
 where product_name IN ('JACKS SALSA','MONDETTA PULL OVER', 'LIP BALM 9 STICKS','KIRKLAND GIFT WRAP 3 PACK','ROTISSERIE CHICKEN');
 
 select * from items order by trip_id desc; 
+
+
+-- new receipts: 12/19/2023, 12/21/2023 costco
+
+select * from trips; 
+
+insert into trips (store_id, date, total_cost)
+values 
+(8, '2023-12-19', 10.99), 
+(8, '2023-12-21', 88.00);
+
+-- trip 12/19/2023
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku)
+VALUES
+(29, 'AUSSIE BITES', 'PC',1, 10.99,10.99,891394);
+
+
+-- I NEED TO ADD A WEIGHT / VOLUME COLUMN TO ITEMS OTHERWISE MY ANALYSIS WILL BE USELESS!!! 
+
+alter table items
+add column weight_or_vol numeric;
+
+--i need to specify that is just a measurement of weight in OZ ! 
+
+alter table items
+change column weight_or_vol weight_oz numeric; 
+select * from items;
+
+--trip 12/21/2023
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(30, 'BRUSSEL SPROUTS', 'PC',1, 5.79,5.79,80487,32),
+(30, 'FIG BARS 40 x 2 OZ','PC',1,17.79,17.79,1618252,80),
+(30, 'THINK THIN PROTEIN BARS 18 x 2.1 OZ', 'PC',1,20.99,20.99,865513,37.8),
+(30, 'KS TORTILLA CHIPS','PC',1,5.69,5.69,44004,48),
+(30, 'CORDON BLEU FROZEN CHICKEN', 'PC',1,12.69,12.69,1021876,39),
+(30, 'SUPER SLAW', 'PC',1,2.99,2.99,8303,28),
+(30, 'APPLES HONEYCRISP 4 LBS','PC',1,5.99,5.99,6659,64),
+(30, 'BANANAS ORG', 'PC',1, 2.49,2.49,2619,NULL),
+(30, 'ORG EGGS 2 DZ','PC',1,7.59,7.59,1068083,48),
+(30, 'ORG MUSHROOMS BABY BELLAS', 'PC',1,5.99,5.99,121288,24);
+
+select sum(total_price) from items where trip_id = 30; --$88.00
+
+update items 
+set total_price = 12.69 where product_name = 'CORDON BLEU FROZEN CHICKEN';
+
+select * from items where trip_id = 30; 
