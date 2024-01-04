@@ -814,3 +814,46 @@ update items
 set total_price = 12.69 where product_name = 'CORDON BLEU FROZEN CHICKEN';
 
 select * from items where trip_id = 30; 
+
+select * from items;
+
+--new winco trip 01/24/23
+
+select * from store; 
+
+insert into trips (store_id, date, total_cost)
+values 
+(2, '2024-01-03', 44.40); 
+
+select * from trips order by date desc; 
+
+SELECT .64*4;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(31, 'WINCO BREAD', 'PC',1, 1.98,1.98,7055200639,24),
+(31, 'CELERY','PC',1,1.28,1.28,3338365325,NULL),
+(31, 'RED BELL PEPPERS', 'PC',2,1.48,2.96,4688,NULL),
+(31, 'PARSLEY ITALIAN','PC',1,.78,.78,4901,NULL),
+(31, 'GREEN ONION', 'PC',1,.68,.68,4068,NULL),
+(31, 'ORG ONION 3 LBS', 'PC',1,2.98,2.98,4068,48),
+(31, 'WINCO GRK YOGURT','PC',4,.68,2.56,7055240407,5.3),
+(31, 'CENTO TOMATO PUREE', 'PC',1, 2.80,2.80,707930001,28),
+(31, 'WINCO CREAM CHEESE','PC',1,2.94,2.94,7055240016,12),
+(31, 'CUCUMBER', 'PC',1,.78,.78,7055240016,NULL),
+(31, 'BARILLA PASTA ROTINI', 'PC',1,1.75,1.75,7680800653,16),
+(31, 'POTATOES YELLOW 5 LBS', 'PC',1,3.98,3.98,69477062331,80),
+(31, 'DEODORANT ARM & HAMMER', 'PC',1,3.29,3.29,3320019792,NULL),
+(31, 'WINCO MOZZARELLA CHEESE', 'PC',1,3.58,3.58,7055240122,16),
+(31, 'GARLIC CLOVE', 'PC',1,.68,.68,4608,NULL),
+(31, 'ORANGES NAVEL', 'LBS',3.06,.78,2.39,4012,48),
+(31, 'APPLE GOLDEN DELICIOUS', 'LBS',2.03,1.28,2.60,4020,32),
+(31, 'LEMON LARGE', 'PC',1,.98,.98,4053,NULL),
+(31, 'BANANAS', 'LBS',2.07,.59,1.22,4011,32),
+(31, 'KOMBUCHA GTS', 'PC',1,3.98,3.98,72243020016,16);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 31;
+
+UPDATE TRIPS 
+SET TOTAL_COST = 44.19 WHERE ID = 31;
+
