@@ -857,3 +857,45 @@ SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 31;
 UPDATE TRIPS 
 SET TOTAL_COST = 44.19 WHERE ID = 31;
 
+-- costco 01/06/2024 
+
+select * from store; 
+
+insert into trips (store_id, date, total_cost)
+values 
+(8, '2024-01-06', 75.63); 
+
+select * from trips order by date desc; 
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(32, 'OLIPOP VARIETY PACK', 'PC',1, 13.79,13.79,1744021,NULL),
+(32, 'BROCCOLI SOUP 2 PACK','PC',1,9.89,9.89,1788152,NULL),
+(32, 'BAGELS 2 PK', 'PC',1,7.99,7.99,1335089,NULL),
+(32, 'KS SEAWEED SNACK','PC',1,9.99,9.99,1193197,NULL),
+(32, 'COCONUT CUPS', 'PC',1,10.59,10.59,1714297,NULL),
+(32, 'CETAPHIL CLEANSER 2 PK', 'PC',1,16.48,16.48,1695152,NULL);
+
+-- I FORGOT THE NUTS 
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(32, 'KS NUTS UNSALTED', 'PC',1, 12.99,12.99,1652577,40);
+
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 32; 
+SELECT product_name, TOTAL_PRICE FROM ITEMS WHERE TRIP_ID = 32; 
+
+SELECT * FROM ITEMS WHERE TRIP_ID = 32;
+
+UPDATE ITEMS 
+SET price_per_unit = 7.59, TOTAL_PRICE = 7.59 WHERE PRODUCT_NAME = 'COCONUT CUPS';
+
+
+UPDATE ITEMS 
+SET price_per_unit = 16.39, TOTAL_PRICE = 16.39 WHERE PRODUCT_NAME = 'CETAPHIL CLEANSER 2 PK';
+
+
+UPDATE ITEMS 
+SET price_per_unit = 10.79, TOTAL_PRICE = 10.79 WHERE PRODUCT_NAME = 'OLIPOP VARIETY PACK';
+
+SELECT 140.62 - 64.99;
