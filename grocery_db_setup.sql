@@ -899,3 +899,28 @@ UPDATE ITEMS
 SET price_per_unit = 10.79, TOTAL_PRICE = 10.79 WHERE PRODUCT_NAME = 'OLIPOP VARIETY PACK';
 
 SELECT 140.62 - 64.99;
+
+
+--new trip! NSM 1/18/24 
+
+select * from store; -- nsm store id = 7 
+
+insert into trips (store_id, date, total_cost)
+values 
+(7, '2024-01-18', 31.32); 
+
+select * from trips order by date desc limit 1;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(33, 'DELLALO PASTA ORZO', 'PC',1,4.79,4.79,NULL,16),
+(33, 'NAVEL ORANGES', 'LBS',1.99, 2.99,5.95,NULL,32),
+(33, 'BUNCH CARROTS ORG', 'PC',1,2.99,2.99,NULL,NULL),
+(33, 'BUNCH BEETS ORG', 'PC',1, 2.99,2.99,NULL,NULL),
+(33, 'KALE ORG', 'PC',2, 2.99,5.98,NULL,NULL),
+(33, 'PARM REG BULK', 'LBS',.375,22.99,8.62,NULL,6);
+
+SELECT * FROM ITEMS WHERE TRIP_ID = 33; 
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 33; -31.32 
+
