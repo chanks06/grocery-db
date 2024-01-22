@@ -916,7 +916,7 @@ VALUES
 (33, 'DELLALO PASTA ORZO', 'PC',1,4.79,4.79,NULL,16),
 (33, 'NAVEL ORANGES', 'LBS',1.99, 2.99,5.95,NULL,32),
 (33, 'BUNCH CARROTS ORG', 'PC',1,2.99,2.99,NULL,NULL),
-(33, 'BUNCH BEETS ORG', 'PC',1, 2.99,2.99,NULL,NULL),
+(33, 'BUNCH BEETS O,RG', 'PC',1, 2.99,2.99,NULL,NULL),
 (33, 'KALE ORG', 'PC',2, 2.99,5.98,NULL,NULL),
 (33, 'PARM REG BULK', 'LBS',.375,22.99,8.62,NULL,6);
 
@@ -924,3 +924,20 @@ SELECT * FROM ITEMS WHERE TRIP_ID = 33;
 
 SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 33; -31.32 
 
+-- new trip: 1/19/24 fred meyers on glisan 
+
+select * from store; 
+
+insert into store (name, address)
+values ('Fred Meyer','6615 NE Glisan St');
+
+insert into trips (store_id, date, total_cost)
+values (9,'2024-01-19',5.78);
+
+select * from trips; 
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES (34,'PARSLEY ORG','PC',1,1.79,1.79,3338390423 ,NULL),
+ (34,'GCB SOURDOUGH LOAF','PC',1,3.99,3.99,73316300123 ,NULL);
+
+ SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 34; 
