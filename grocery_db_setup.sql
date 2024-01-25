@@ -941,3 +941,47 @@ VALUES (34,'PARSLEY ORG','PC',1,1.79,1.79,3338390423 ,NULL),
  (34,'GCB SOURDOUGH LOAF','PC',1,3.99,3.99,73316300123 ,NULL);
 
  SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 34; 
+
+ -- new trip: NSM @ Grant Park 
+
+ select * from store; 
+
+ insert into store (name, address)
+ values ('New Seasons Market', '3210 NE Broadway');
+
+
+insert into trips (store_id, date, total_cost)
+values (10,'2024-01-23',18.81), 
+(8,'2024-01-24',106.50);
+
+select * from trips order by date desc limit 2;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+values (36, 'DILL ORG', 'PC',1, 2.99,2.99,NULL,NULL),
+(36, 'FENNEL ORG', 'LBS',.96,4.99,4.79,NULL,NULL),
+(36, 'RADDICCHIO ORG', 'LBS',1.53, 5.99,9.16,NULL,NULL),
+(36, 'MEYER LEMON ORG', 'LBS',.49, 2.99,1.47,NULL,NULL),
+(36, 'SHALLOTS', 'LBS',.07,4.99,.35,NULL,NULL);
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+values (36, 'STUPID BAG FEE', 'PC',1, .05,.05,NULL,NULL);
+
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 36;
+
+------
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(37, 'OPAL APPLES 4 LB', 'PC',1,6.99,6.99,6852,64),
+(37, 'BANANAS 3 LB','PC',1,1.99,1.99,30669,48),
+(37, 'CHOBANI YOGURT 20 PK', 'PC',1,15.89,15.89,1005641,64),
+(37, 'MANDARINS 5 LB ','PC',1,7.99,7.99,18600,80),
+(37, 'CHOC BRIOCHE MILK BUNS', 'PC',1,5.99,5.99,1780675,19),
+(37, 'KS ITALIAN OLIVE OIL 2 L ', 'PC',1,17.99,17.99,71003,64),
+(37, 'KS OAT MILK 6 x 32 FL OZ', 'PC',1,10.99,10.99,1272413,192),
+(37, 'DAVES KILLER BREAD 2 LOAVES','PC',1,9.49,9.49,512447,54),
+(37, 'SLICED SWISS CHEESE', 'PC',1,10.49,10.49,20661,32),
+(37, 'RXBAR VARIETY 14 BARS', 'PC',1,18.69,18.69,1761722,26);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 37;
