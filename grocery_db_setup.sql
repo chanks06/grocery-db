@@ -985,3 +985,25 @@ VALUES
 (37, 'RXBAR VARIETY 14 BARS', 'PC',1,18.69,18.69,1761722,26);
 
 SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 37;
+
+--new fred meyers trip: 
+select * from store; 
+insert into trips (store_id, date, total_cost)
+values (1,'2024-02-02',37.21);
+
+select * from trips;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(39, 'RADISH ORG', 'PC',1,1.79,1.79,3338390413,null),
+(39, 'RED PEPPER ORG','PC',1,2.19,2.19,5783694688,NULL),
+(39, 'ONION RED ORGANIC', 'LBS',.59,1.69,1,81488102197,9),
+(39, 'PITA BREAD ALEXIS ','PC',1,5.49,5.49,8148810202,NULL),
+(39, 'KING HARVEST HUMMUS', 'PC',1,3.99,3.99,2572631127,NULL),
+(39, 'ALADIN TZAZIKI ', 'PC',1,4.89,4.89,85901400031,10),
+(39, 'GTS KOMBUCHA', 'PC',1,3.49,3.49,72243020016,16),
+(39, 'HGTS BBQ SANDWICH','PC',1,7.49,7.49,9663611856,NULL),
+(39, 'CUCUMBER', 'PC',1,1.49,1.49,71106994062,NULL),
+(39, 'POLAR 8 PK BLACK CHERRY', 'PC',1,5.29,5.29,715370366,96);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 39;
