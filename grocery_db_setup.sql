@@ -1007,3 +1007,25 @@ VALUES
 (39, 'POLAR 8 PK BLACK CHERRY', 'PC',1,5.29,5.29,715370366,96);
 
 SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 39;
+
+--costco 2/5/24
+
+select * from store; -- store id = 8
+
+insert into trips (store_id, date, total_cost)
+values (8,'2024-02-05',61.03);
+
+select * from trips; -- my 40th trip! hooray 
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(40, 'KS PAPER TOWELS', 'PC',1,19.49,19.49,1742835,null),
+(40, 'ROTISSERIE CHICKEN','PC',1,4.99,4.99,87745,48),
+(40, 'EGGS KS ORG 2 DZ', 'PC',1,7.59,7.59,1068083,48),
+(40, 'KS CREAM CHEESE 6 X 8 OZ','PC',1,7.99,7.99,1656611,48),
+(40, 'ORGANIC TOFU 4 X 1 LB', 'PC',1,6.99,6.99,1204135,64),
+(40, 'BROCCOLI FLORETS ORG', 'PC',1,5.99,5.99,7267,32),
+(40, 'BAGEL 2 PK', 'PC',1,7.99,7.99,7267,48);
+
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 40;
