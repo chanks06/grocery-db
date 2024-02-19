@@ -1058,3 +1058,28 @@ VALUES
 (41, 'SENSODYNE TOOTHPASTE', 'PC',1,6.98,6.98,31015885000,NULL);
 
 SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 41; 
+
+-- new receipts: 
+
+select * from store; 
+
+insert into trips (store_id, date, total_cost)
+values (8,'2024-02-11',12.49),
+(1,'2024-02-16',28.48); 
+
+select * from trips;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(42, 'KS MIXED NUTS', 'PC',1,12.49,12.49,1645578,40);
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(43, 'SPINDRIFT 8 PK GRAPEFRUIT', 'PC',1,6.79,6.79,85657900232,96),
+(43, 'CUCUMBER', 'PC',1,1.49,1.49,71106994062,NULL),
+(43, 'CARROTS BULK', 'LBS',.93,.99,.92,856571106994062,15),
+(43, 'TIMS CHIPS', 'PC',1,3.99,3.99,1159475300,NULL),
+(43, 'KROGER AMERICAN CHEESE DELI', 'PC',1,7.03,7.03,20635090000,NULL),
+(43, 'HONEY TURKEY SLICED DELI', 'PC',1,8.57,8.57,20593890000,96);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 43;
