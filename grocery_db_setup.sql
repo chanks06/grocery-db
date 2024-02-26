@@ -1086,3 +1086,24 @@ SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 43;
 
 select count(id) from trips;
 
+-- costco 2/21/2024
+
+
+select * from store; 
+
+insert into trips (store_id, date, total_cost)
+values (8,'2024-02-21',68.63);
+
+SELECT * FROM TRIPS;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(44, 'KS PEACHES 4 JARS', 'PC',1,12.89,12.89,512688,96),
+(44, 'KIMCHI','PC',1,7.89,7.89,512688,42),
+(44, 'JAPANESE GYOZA', 'PC',2,14.99,14.99,1763967,NULL),
+(44, 'KS COLUMBIAN COFFEE','PC',2,17.89,17.89,120296,48),
+(44, 'COTTAGE CHEESE', 'LBS',1,5.99,5.99,289660,48),
+(44, 'BANANAS', 'PC',1,1.99,1.99,30669,NULL),
+(44, 'OPAL APPLES 4 LBS','PC',1,6.99,6.99,6852,64);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 44;
