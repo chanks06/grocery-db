@@ -34,7 +34,7 @@ def open_connection():
 
 ## kk next I want to build a function that receives an SQL query and produces a formatted pandas dataframe: 
 
-def query_to_dataframe(cursor): 
+def query_to_dataframe(connection, cursor): 
 
     ### 1. TABLE SELECTION 
     #first show user what tables are inside the GROCERY database 
@@ -52,40 +52,26 @@ def query_to_dataframe(cursor):
 
     ### 2. TABLE LOAD
         
-    cursor.execute(f'SELECT * FROM {user_query}')
-    selected_table = cursor.fetchall() 
+    #cursor.execute(f'SELECT * FROM {user_query}')
+    #selected_table = cursor.fetchall() 
 
     # take contents of cursor (a list of tuples) and contruct a pd dataframe. 
     # columns arg takes the first element from description, which is the name of the table column from mySQL
 
-    datatypes = {2: int, 253: str, 246: float, 10: dt.datetime }
+    query = f"SELECT * FROM {user_query}"
 
-    relevant_data = [(t[0],t[1]) for t in cursor.description]
-    relevant_dict = {key:value for key,value in relevant_data}
+    table = pd.read_sql(query, connection, parse_dates = ['date'], coerce_float= True)
 
-    for key, value in relevant_dict.items(): 
-        if value in datatypes: 
-            relevant_dict[key] = datatypes[value]
+    print(table.info())
 
+    return table 
 
-    df = pd.DataFrame(selected_table, columns = [i[0] for i in cursor.description])
+# new function that imports all tables from grocery_db
 
-    df.astype(dtype = relevant_dict)
-
-    print(df.dtypes)
+def import_tables(connection, cursor):
+    
 
    
-
-
- 
-
-    
-
-    
-
-
-
-
 def close_connection(connection, cursor): 
     if cursor: 
         cursor.close()
@@ -98,10 +84,11 @@ def main():
     connection, cursor = open_connection()
 
     # ETL goes here 
-    query_to_dataframe(cursor)
+    selected_table = query_to_dataframe(connection, cursor)
 
     close_connection(connection, cursor)
 
-
+    return selected_table
+ 
 if __name__ == '__main__':
-    main()
+    selected_table = main()
