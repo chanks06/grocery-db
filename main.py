@@ -34,7 +34,9 @@ def open_connection():
 
 ## kk next I want to build a function that receives an SQL query and produces a formatted pandas dataframe: 
 
-def query_to_dataframe(connection, cursor): 
+### I DON'T NEED THIS FUNCTION RIGHT NOW BUT LEAVING IT BECAUSE IT TOOK ME TO WHERE I WANTED TO GO
+        
+""" def import_one_table(connection, cursor): 
 
     ### 1. TABLE SELECTION 
     #first show user what tables are inside the GROCERY database 
@@ -65,11 +67,32 @@ def query_to_dataframe(connection, cursor):
     print(table.info())
 
     return table 
+ """
+
+
 
 # new function that imports all tables from grocery_db
 
 def import_tables(connection, cursor):
-    
+    cursor.execute("SHOW TABLES")
+    tables = cursor.fetchall() # assign result from query to var tables 
+
+    all_table_names = [table[0] for table in tables] # grabbing table names from result
+
+    ###
+    # create dictionary that will store the dataframes
+    table_dictionary = {}
+
+    #iterate through table names, query each table, and then put it into table_dictionary
+    for table_name in all_table_names:
+        query = "SELECT * FROM " + table_name
+        table = pd.read_sql(query, connection, parse_dates = ['date'], coerce_float= True)
+        
+        table_dictionary[table_name] = table
+
+    #return dictonary of all the tables from grocery db
+    return table_dictionary
+
 
    
 def close_connection(connection, cursor): 
@@ -83,12 +106,13 @@ def close_connection(connection, cursor):
 def main(): 
     connection, cursor = open_connection()
 
-    # ETL goes here 
-    selected_table = query_to_dataframe(connection, cursor)
-
+    grocery_tables = import_tables(connection, cursor)
+    
+    if grocery_tables:
+        print("All tables loaded from GROCERY DB.")
     close_connection(connection, cursor)
 
-    return selected_table
+    return grocery_tables
  
 if __name__ == '__main__':
-    selected_table = main()
+    grocery_tables = main()
