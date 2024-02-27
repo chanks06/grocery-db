@@ -18,3 +18,5 @@ What is the average price per trip at each store ?
 * Could I use an LLM to help me categorize every item (categories: produce, dairy, meat, sundries, etc ?)
 
 * Could I create a grocery template list from this data, i.e. the 20 most frequently purchased items? 
+
+* What do I buy, and from where do I buy it ? 
