@@ -18,7 +18,20 @@ I have a local [mySQL database](./sql/grocery-db-erd.png) into which I enter sto
     Bananas, apples, cucumber, dates 
 
 * Could I use an LLM to help me categorize every item (categories: produce, dairy, meat, sundries, etc ?)
-    TDB
+    I exported the list of grocery items I have bought, asked chatGPT 3.5 do to it with the following categories:
+        produce - fruits and vegetables 
+        dairy - milk, eggs, cheese, etc. 
+        deli - any deli item like sliced meat, cheese
+        beverage - coffee, soda, oat milk, milk
+        nuts and dried fruit - things like dates, pecans, prunes, walnuts
+        dessert - chocolates, ice cream, anything sweet really 
+        ready to eat - things like sandwiches
+        condiments - hot cause, mayonaise, mustard
+        sundries - toilet paper, garbage bags, basically miscellaneous non food stuff
+
+    GPT did not correctly categorize. We will go from there. 
+
+    
 
 * Could I create a grocery template list from this data, i.e. the 20 most frequently purchased items? 
     YES
