@@ -1109,3 +1109,69 @@ VALUES
 SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 44;
 
 select * from trips; 
+
+-- I've got a big stack of receipts dying to being entered into these tables! 
+--3/5/2024 
+
+insert into trips (store_id, date, total_cost)
+values (8,'2024-02-19',4.99), 
+(1,'2024-02-28',10.35),
+(8,'2024-03-02',4.99),
+(8,'2024-03-03',21.58),
+(8,'2024-03-04',11.99),
+(8,'2024-03-05',36.55);
+
+select * from store;
+
+select * from trips;
+
+-- I accidentally ran the query above twice. This is a good opportunity to de-duplicate! 
+
+select count(*) from trips
+group by id, store_id, date, total_cost;
+
+select  store_id, date, TOTAL_COST, count(*) 
+from trips 
+group by store_id, date, total_cost
+having count(*) > 1;
+
+-- looks like I have duplicates beyond the ones I just inserted twice
+
+select * from trips 
+where total_cost = 18.81 or total_cost = 37.21;
+
+--okay now to remove the duplicates.... 
+
+select  store_id, date, TOTAL_COST, count(*) 
+from trips 
+group by store_id, date, total_cost
+having count(*) > 1;
+
+--creating temporary table of unique rows: 
+
+create temporary table temp_table as 
+  select min(id) as unique_id, store_id, date, total_cost
+  from trips
+  group by store_id, date, TOTAL_COST
+  having count(*) > 1;
+
+--
+
+delete trips from trips 
+join temp_table on trips.id = temp_table.unique_id;
+
+select * from trips; -- cool it worked
+
+-- TODO: AVOID DUPLICATE ROWS BY CREATING A UNIQUE CONSTRAINT!!
+
+-- kk back to data insertion....
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(51, 'ROTISSERIE CHICKEN', 'PC',1,4.99,4.99,87745,48),
+(52, 'BROCCOLI', 'LBS',1.07,1.79,1.90,3082,16),
+(52, 'CARROTS', 'LBS',1.39,.99,1.37,4562,22),
+(52, 'BELL PEPPER', 'PC',1,1.50,1.50,89631500109,NULL),
+(52, 'COLLARD GREENS ORG', 'PC',2,2.79,5.58,3338390415,NULL);
+
+SELECT 1.4 * 16

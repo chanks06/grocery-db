@@ -31,7 +31,7 @@ I have a local [mySQL database](./sql/grocery-db-erd.png) into which I enter sto
 
     GPT did not correctly categorize. We will go from there. 
 
-    
+
 
 * Could I create a grocery template list from this data, i.e. the 20 most frequently purchased items? 
     YES
@@ -47,3 +47,10 @@ I have a local [mySQL database](./sql/grocery-db-erd.png) into which I enter sto
         'BREAD DAVES KILLER',
         'ZUCCHINI',
         'KALE ORG']
+
+
+## exporting mySQL grocery db to the cloud 
+I want to take this local mySQL database and move it to Azure. 
+
+### [TUTORIAL](https://learn.microsoft.com/en-us/azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql&source=docs)
+
