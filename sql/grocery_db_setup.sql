@@ -1174,4 +1174,32 @@ VALUES
 (52, 'BELL PEPPER', 'PC',1,1.50,1.50,89631500109,NULL),
 (52, 'COLLARD GREENS ORG', 'PC',2,2.79,5.58,3338390415,NULL);
 
-SELECT 1.4 * 16
+select * from trips; 
+
+--3/2 trip 1 rotis chicken 
+
+select * from items;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(53, 'ROTISSERIE CHICKEN', 'PC',1,4.99,4.99,87745,48);
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(54, 'BACHAN JAPANESE BBQ SAUCE', 'PC',1,9.79,9.79,1566350,34),
+(54, 'STICKY RICE BOWLS 12 PC', 'PC',1,11.79,11.79,1685578,89);
+
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(55, 'ORG MEDJOOL DATES', 'PC',1,11.99,11.99,370586,32);
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(56, 'VARIETY COSTCO MUFFINS 2 X 6', 'PC',1,9.99,9.99,24311,70),
+(56, 'CHOBANI YOGURT 20 PC', 'PC',1,10.89,10.89,1005641,106),
+(56, 'OPAL APPLES 4 LBS', 'PC',1,5.99,5.99,6852,64),
+(56, 'BANANAS', 'PC',1,1.99,1.99,30669,NULL),
+(56, 'OROWHEAT WHOLE WHEAT 2 PK', 'PC',2,7.69,7.69,88073,64);
+
+SELECT 5.3*20;
