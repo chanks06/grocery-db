@@ -1252,3 +1252,33 @@ VALUES
 
 
 SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 57;
+
+--trips 3/14 - 3/15 
+
+insert into trips (store_id, date, total_cost)
+values (8,'2024-03-14',22.20),
+ (8,'2024-03-13',8.29),
+ (8, '2024-03-15',65.64);
+
+select * from trips;
+
+update trips 
+set date = '2024-03-14' where id = 60;
+
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(59, 'COOKED DRUMSTICKS', 'PC',1,9.21,9.21,19247,22.20),
+(59, 'KS UNSTALTED NUTS 2.5 LBS', 'PC',1,12.99,12.99,1652577,40),
+(60, 'SANDERS CHOCOLATE CARAMELS', 'PC',1,8.29,8.29,607021,36);
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(61, 'KS CHEWY GRANOLA BAR', 'PC',1,14.79,14.79,1377067,60),
+(61, 'DAVES KILLER BREAD PROTEIN BARS', 'PC',1,19.99,15.99,1752067,35),
+(61, 'KS ORGANIC OAT MILK', 'PC',1,10.89,10.89,1272413,192),
+(61, 'KS ICE CREAM BAR', 'PC',1,9.99,9.99,1185912,NULL),
+(61, 'BANANAS', 'PC',1,1.99,1.99,30669,48),
+(61, 'ADAMS CRUNCHY PEANUT BUTTER', 'PC',1,11.99,11.99,18257,80);
+
+
