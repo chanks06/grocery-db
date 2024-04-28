@@ -1311,8 +1311,72 @@ VALUES
 (62, 'REESES PIECES', 'PC',1,1.18,1.18,3400011470,NULL);
 
 
+select * from trips order by date desc; 
+
+select name from store where id = 7;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(63, 'BREW DR KOMBUCHA', 'PC',1,2.60,2.60,NULL,NULL),
+(63, 'ORG MIZUNA','PC',1,4.99,4.99,NULL,NULL),
+(63, 'ORG RADISH', 'PC',1,1.99,1.99,NULL,NULL),
+(63, 'ORG KALE','PC',1,2.99,2.99,NULL,NULL);
+
+SELECT SUM(TOTAL_PRICE) FROM ITEMS WHERE TRIP_ID = 63;
+
+SELECT * FROM TRIPS WHERE ID = 64;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(64, 'HUMMUS', 'PC',1,5.99,5.99,1218601,36),
+(64, 'GREEK PITA', 'PC',1,3.99,3.99,668460,NULL),
+(64, 'KS BARSOAP', 'PC',1,12.99,12.99,1397147,NULL);
+
+SELECT * FROM TRIPS WHERE ID = 65;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(65, 'WINCO FROZEN PEAS', 'PC',1,1.77,1.77,7055230115,NULL),
+(65, 'WINCO BREAD','PC',1,1.98,1.98,7055200611,NULL),
+(65, 'JUANITAS CHIPS', 'PC',1,2.98,2.98,4886731224,NULL),
+(65, 'MARUCHAN RAMEN','PC',4,.34,1.36,4178900217,NULL),
+(65, 'WINCO HALF & HALF', 'PC',1,2.97,2.97,7055240206,NULL),
+(65, 'WINCO BEANS', 'PC',1,1.64,1.64,7055270431,NULL),
+(65, 'WINCO TOMATO SAUCE','PC',1,.85,.85,7055260205,NULL),
+(65, 'RED BELL PEPPER', 'PC',1,.98,.98,4088,NULL),
+(65, 'YELLOW BELL PEPPER', 'PC',1,.98,.98,4689,NULL),
+(65, 'SWEET ONION','LBS',.78,1.28,1.00,4166,NULL),
+(65, 'ZUCCHINI', 'LBS',.87,.96,.85,4067,NULL),
+(65, 'FRESNO CHILI', 'LBS',.03,6.48,.19,4711,NULL),
+(65, 'ITALIAN SANDWICH','PC',1,2.98,2.98,26731200000,NULL),
+(65, 'WINCO SPICE', 'PC',3,.98,2.94,7055220221,NULL);
+
+SELECT * FROM ITEMS WHERE TRIP_ID = 65;
+
+-- one more for the night 
+
+select * from trips;
+
+insert into store (name, address)
+values ('Trader Joes', '4715 SE Cesar Chavez Blvd');
+
+insert into trips (store_id, date, total_cost)
+values 
+(11,'2024-04-16',33.16);
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(66, 'PASTA RAVIOLI ITALIAN CHEESE', 'PC',1,2.99,2.99,NULL,NULL),
+(66, 'PESTO BASIL','PC',1,2.99,2.99,NULL,NULL),
+(66, 'APPLE BAG ORG PINK LADY', 'PC',1,2.99,2.99,NULL,NULL),
+(66, 'RAW PREMIUM WALNUT HALVES','PC',1,6.99,6.99,NULL,NULL),
+(66, 'PITTED PRUNES', 'PC',1,3.99,3.99,NULL,NULL),
+(66, 'BANANAS', 'PC',1,1.61,1.61,NULL,NULL),
+(66, 'MEAL INDIAN', 'PC',1,2.49,4.98,NULL,NULL),
+(66, 'ORG WHOLE WHEAT SPAGHETTI','PC',1,1.79,1.79,NULL,NULL),
+(66, 'SALAD ARUGULA WILD', 'PC',1,2.29,2.29,NULL,NULL);
 
 
-SELECT 3.56 + .8; 
-
-SELECT 2.57*16;
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(66, 'PEANUT BUTTER PRETZELS','PC',1,2.49,2.49,NULL,NULL);
