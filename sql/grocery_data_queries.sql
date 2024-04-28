@@ -40,4 +40,19 @@ select i.trip_id,i.product_name, i.total_price, t.date from items as i
 join trips as t on i.trip_id = t.id
 where product_name like "%oat%";
 
-select * from items where (trip_id = 18 or trip_id = 21) and product_name like "%oat%";
+select * from items where (trip_id = 18 or trip_id = 21) and product_name like "%oat%"
+
+
+----comparing DAX expression results with my sql queries 
+
+--finding total amount spent per month, year: 
+
+
+select * from trips;
+
+--mysql has a month() func? 
+
+select monthname(date) as month, sum(total_cost) from trips
+group by month;
+
+select da sum(total_cost) 
