@@ -1282,3 +1282,37 @@ VALUES
 (61, 'ADAMS CRUNCHY PEANUT BUTTER', 'PC',1,11.99,11.99,18257,80);
 
 
+--Database update 4/26/2024 
+
+select * from store;
+
+insert into trips (store_id, date, total_cost)
+values 
+(2,'2024-03-22',42.50),
+(7,'2024-04-02',12.57),
+(8, '2024-04-18',22.97),
+(2,'2024-04-26',24.15);
+
+select * from trips 
+order by date desc;
+
+insert into items (trip_id, product_name, quantity_unit, quantity, price_per_unit, total_price, sku, weight_oz)
+VALUES
+(62, 'RUFFLES CHIPS', 'PC',1,3.98,3.98,2840051691,NULL),
+(62, 'RESER BURRITO','PC',1,6.42,6.42,71117011118,96),
+(62, 'WINCO DRIED BEANS', 'PC',1,1.38,1.38,7055270411,NULL),
+(62, 'CLIF BUILDER BAR','PC',2,1.78,3.56,72225260144,NULL),
+(62, 'BLACK FOREST HAM', 'PC',1,4.18,4.18,7470000140,NULL),
+(62, 'WINCO SANDWICH', 'PC',1,4.18,4.18,26731000000,NULL),
+(62, 'POLAR SELTZER','PC',1,4.36,4.36,7153700366,NULL),
+(62, 'WINCO CRACKERS', 'PC',1,2.48,2.48,7055250162,NULL),
+(62, 'GROUND BEEF', 'PC',1,5.51,5.51,2015400000,NULL),
+(62, 'APPLES GOLDEN DELICIOUS','LBS',2.57,1.28,3.29,4020,41),
+(62, 'REESES PIECES', 'PC',1,1.18,1.18,3400011470,NULL);
+
+
+
+
+SELECT 3.56 + .8; 
+
+SELECT 2.57*16;
