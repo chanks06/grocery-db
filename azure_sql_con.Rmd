@@ -1,0 +1,38 @@
+---
+title: "azure"
+output: html_document
+date: "2024-05-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(DBI)
+library(odbc)
+```
+
+```{r}
+ con <- dbConnect(odbc::odbc(),
+                 Driver = "ODBC Driver 18 for SQL Server",
+                 Server = "evoo.database.windows.net",
+                 Database = "chanks",
+                 Uid = "cwh",
+                 Pwd = "Movienight29",
+                 Port = 1433,
+                 Encrypt = "yes",
+                 TrustServerCertificate = "no",
+                 ConnectionTimeout = 30)
+```
+
+```{r}
+test_query = "SELECT * from grocery.store"
+store = dbGetQuery(con, test_query)
+```
+
+```{r}
+store
+
+```
+
